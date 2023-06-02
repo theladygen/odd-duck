@@ -59,6 +59,32 @@ function showImage(){
   productArray[imgThreeDisplay].views++;
 }
 
+function handleImgClicks(event){
+  let imgClicked = event.target.title;
+
+  for(let i = 0; i < productArray.length; i++){
+    if(imgClicked === productArray[i].name){
+      productArray[i].votes++;
+    }
+  }
+  votingRounds--;
+  showImage();
+  if(votingRounds === 0){
+    displayContainer.removeEventListener('click', handleImgClicks);
+  }
+}
+
+function handleDisplayResults(){
+  if(votingRounds === 0){
+    for(let i = 0; i < productArray.length; i++){
+      let productItem = document.createElement('li');
+      productItem.textContent = `${productArray[i].name}: Views: ${productArray[i].views} and Votes: ${productArray[i].votes}`;
+      results.appendChild(productItem);
+    }
+    button.removeEventListener('click', handleDisplayResults);
+  }
+}
+
 let sweep = new Products ('sweep', 'png');
 let bag = new Products ('bag');
 let banana = new Products ('banana');
@@ -83,4 +109,6 @@ productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, cha
 
 console.log(productArray);
 
+displayContainer.addEventListener('click', handleImgClicks);
+button.addEventListener('click', handleDisplayResults);
 showImage();
