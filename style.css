@@ -1,0 +1,30 @@
+body {
+  background-color: #2a9d8f;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+#img1, #img2, #img3 {
+  max-height: 300px;
+  padding: 2em;
+}
+
+#displayImages {
+  background-color: #e76f51;
+  display: flex;
+  justify-content: center;
+}
+
+#results {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+#btn {
+  background-color: #e9c46a;
+  border-radius: 1.5em;
+}
