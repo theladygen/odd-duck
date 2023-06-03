@@ -2,6 +2,8 @@
 
 let productArray = [];
 let votingRounds = 25;
+let previousImages = [];
+
 
 function Products(name, fileExt = 'jpg'){
   this.name = name;
@@ -17,24 +19,34 @@ let imgThree = document.getElementById('img3');
 let button = document.getElementById('btn');
 let results = document.getElementById('displayResults');
 
-function randomImage(){
-  return Math.floor(Math.random() * productArray.length);
-}
+// function randomImage(){
+//   return Math.floor(Math.random() * productArray.length);
+// }
 
+let indexArray = [];
 function showImage(){
-  let imgOneDisplay = Math.floor(Math.random() * productArray.length);
-  let imgTwoDisplay = Math.floor(Math.random() * productArray.length);
-  let imgThreeDisplay = Math.floor(Math.random() * productArray.length);
-
-  while(imgOneDisplay === imgTwoDisplay || imgTwoDisplay === imgThreeDisplay || imgThreeDisplay === imgOneDisplay){
-    imgOneDisplay = randomImage();
-    imgTwoDisplay = randomImage();
-    imgThreeDisplay = randomImage();
-
-    imgOne.src = productArray[randomImage()].img;
-    imgTwo.src = productArray[randomImage()].img;
-    imgThree.src = productArray[randomImage()].img;
+  while(indexArray.length < 6){
+    let randomImage = Math.floor(Math.random() * productArray.length);
+    if(!indexArray.includes(randomImage)){
+      console.log('index has been pushed');
+      indexArray.push(randomImage);
+    }
   }
+
+
+  let imgOneDisplay = indexArray.shift();
+  let imgTwoDisplay = indexArray.shift();
+  let imgThreeDisplay = indexArray.shift();
+
+  // while(imgOneDisplay === imgTwoDisplay || imgTwoDisplay === imgThreeDisplay || imgThreeDisplay === imgOneDisplay){
+  //   imgOneDisplay = randomImage();
+  //   imgTwoDisplay = randomImage();
+  //   imgThreeDisplay = randomImage();
+  // }
+
+  // imgOne.src = productArray[randomImage()].img;
+  // imgTwo.src = productArray[randomImage()].img;
+  // imgThree.src = productArray[randomImage()].img;
 
   imgOne.src = productArray[imgOneDisplay].image;
   imgOne.title = productArray[imgOneDisplay].name;
