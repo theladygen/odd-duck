@@ -107,7 +107,7 @@ let wineGlass = new Products ('wine-glass');
 
 productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
 
-console.log(productArray);
+// console.log(productArray);
 
 displayContainer.addEventListener('click', handleImgClicks);
 button.addEventListener('click', handleDisplayResults);
