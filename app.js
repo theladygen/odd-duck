@@ -17,23 +17,23 @@ let imgThree = document.getElementById('img3');
 let button = document.getElementById('btn');
 let results = document.getElementById('displayResults');
 
-// function randomImage(){
-//   return Math.floor(Math.random() * productArray.length);
-// }
+function randomImage(){
+  return Math.floor(Math.random() * productArray.length);
+}
 
 function showImage(){
-  let imgOneDisplay = Math.floor(Math.random() * productArray.length);
-  let imgTwoDisplay = Math.floor(Math.random() * productArray.length);
-  let imgThreeDisplay = Math.floor(Math.random() * productArray.length);
+  let imgOneDisplay = randomImage();
+  let imgTwoDisplay = randomImage();
+  let imgThreeDisplay = randomImage();
 
   while(imgOneDisplay === imgTwoDisplay || imgTwoDisplay === imgThreeDisplay || imgThreeDisplay === imgOneDisplay){
     imgOneDisplay = showImage();
     imgTwoDisplay = showImage();
     imgThreeDisplay = showImage();
 
-    imgOne.src = productArray[showImage()].img;
-    imgTwo.src = productArray[showImage()].img;
-    imgThree.src = productArray[showImage()].img;
+    imgOne.src = productArray[randomImage()].img;
+    imgTwo.src = productArray[randomImage()].img;
+    imgThree.src = productArray[randomImage()].img;
   }
   // while(imgOneDisplay === imgTwoDisplay){
   //   imgTwoDisplay = randomImage();
