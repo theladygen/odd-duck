@@ -22,14 +22,14 @@ function randomImage(){
 }
 
 function showImage(){
-  let imgOneDisplay = randomImage();
-  let imgTwoDisplay = randomImage();
-  let imgThreeDisplay = randomImage();
+  let imgOneDisplay = Math.floor(Math.random() * productArray.length);
+  let imgTwoDisplay = Math.floor(Math.random() * productArray.length);
+  let imgThreeDisplay = Math.floor(Math.random() * productArray.length);
 
   while(imgOneDisplay === imgTwoDisplay || imgTwoDisplay === imgThreeDisplay || imgThreeDisplay === imgOneDisplay){
-    imgOneDisplay = showImage();
-    imgTwoDisplay = showImage();
-    imgThreeDisplay = showImage();
+    imgOneDisplay = randomImage();
+    imgTwoDisplay = randomImage();
+    imgThreeDisplay = randomImage();
 
     imgOne.src = productArray[randomImage()].img;
     imgTwo.src = productArray[randomImage()].img;
