@@ -1,16 +1,16 @@
 'use strict';
-
+//globals
 let productArray = [];
 let votingRounds = 25;
 let count = 0;
-
+//constructor
 function Products(name, fileExt = 'jpg'){
   this.name = name;
   this.image = `img/${name}.${fileExt}`;
   this.votes = 0;
   this.views = 0;
 }
-
+//dom elements
 let displayContainer = document.getElementById('displayImages');
 let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
@@ -21,7 +21,7 @@ let button = document.getElementById('btn');
 // function randomImage(){
 //   return Math.floor(Math.random() * productArray.length);
 // }
-
+//random image function
 let indexArray = [];
 function showImage(){
   while(indexArray.length < 6){
@@ -75,7 +75,7 @@ function showImage(){
 //     displayContainer.removeEventListener('click', handleImgClicks);
 //   }
 // }
-
+//image click function
 function handleImgClicks(event) {
   if (count < votingRounds) {
 
@@ -92,7 +92,7 @@ function handleImgClicks(event) {
   }
 }
 
-
+//resulting chart display
 function handleDisplayResults(){
   // if(votingRounds === 0){
   //   for(let i = 0; i < productArray.length; i++){
@@ -137,27 +137,29 @@ function handleDisplayResults(){
   });
 }
 
-let sweep = new Products ('sweep', 'png');
-let bag = new Products ('bag');
-let banana = new Products ('banana');
-let bathroom = new Products ('bathroom');
-let boots = new Products ('boots');
-let breakfast = new Products ('breakfast');
-let bubblegum = new Products ('bubblegum');
-let chair = new Products ('chair');
-let cthulhu = new Products ('cthulhu');
-let dogDuck = new Products ('dog-duck');
-let dragon = new Products ('dragon');
-let pen = new Products ('pen');
-let petSweep = new Products ('pet-sweep');
-let scissors = new Products ('scissors');
-let shark = new Products ('shark');
-let tauntaun = new Products ('tauntaun');
-let unicorn = new Products ('unicorn');
-let waterCan = new Products ('water-can');
-let wineGlass = new Products ('wine-glass');
+let sweep = new Products ('Sweep', 'png');
+let bag = new Products ('Bag');
+let banana = new Products ('Banana');
+let bathroom = new Products ('Bathroom');
+let boots = new Products ('Boots');
+let breakfast = new Products ('Breakfast');
+let bubblegum = new Products ('Bubblegum');
+let chair = new Products ('Chair');
+let cthulhu = new Products ('Cthulhu');
+let dogDuck = new Products ('Dog-duck');
+let dragon = new Products ('Dragon');
+let pen = new Products ('Pen');
+let petSweep = new Products ('Pet-sweep');
+let scissors = new Products ('Scissors');
+let shark = new Products ('Shark');
+let tauntaun = new Products ('Tauntaun');
+let unicorn = new Products ('Unicorn');
+let waterCan = new Products ('Water-can');
+let wineGlass = new Products ('Wine-glass');
 
 productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
 
 displayContainer.addEventListener('click', handleImgClicks);
 showImage();
+//TODO: how can I get 'Chart' defined and not to error
+//TODO: clean unnecessary commented out code
