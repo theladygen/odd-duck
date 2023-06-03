@@ -12,6 +12,7 @@ This a website that allows users to vote on new products that could be offered a
 
 * 5/31/23 initial set up of Odd Duck
 * 6/1/23 added 3 rotating photos and enabled 25 rounds of voting, after which results of views and votes are displayed. added a bit of CSS.
+* 6/2/73 attempted to fix console errors
 
 ### Lighthouse Accessibility Report Score
 
