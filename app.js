@@ -16,7 +16,7 @@ let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 let button = document.getElementById('btn');
-let results = document.getElementById('displayResults');
+// let results = document.getElementById('displayResults');
 
 // function randomImage(){
 //   return Math.floor(Math.random() * productArray.length);
@@ -31,7 +31,6 @@ function showImage(){
       indexArray.push(randomImage);
     }
   }
-
 
   let imgOneDisplay = indexArray.shift();
   let imgTwoDisplay = indexArray.shift();
@@ -94,7 +93,6 @@ function handleImgClicks(event) {
 }
 
 
-
 function handleDisplayResults(){
   // if(votingRounds === 0){
   //   for(let i = 0; i < productArray.length; i++){
@@ -111,8 +109,6 @@ function handleDisplayResults(){
     productViews.push(productArray[i].views);
   }
   // button.removeEventListener('click', handleDisplayResults);
-
-
 
   const ctx = document.getElementById('myChart');
 
@@ -141,8 +137,6 @@ function handleDisplayResults(){
   });
 }
 
-
-
 let sweep = new Products ('sweep', 'png');
 let bag = new Products ('bag');
 let banana = new Products ('banana');
@@ -164,8 +158,6 @@ let waterCan = new Products ('water-can');
 let wineGlass = new Products ('wine-glass');
 
 productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
-
-
 
 displayContainer.addEventListener('click', handleImgClicks);
 showImage();
