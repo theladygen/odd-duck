@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="reset.css" type="text/css" rel="stylesheet"/>
   <link href="style.css" type="text/css" rel="stylesheet"/>
-  <script src="app.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
   <title>Odd Duck</title>
 </head>
 <body>
   <h1>Odd Duck Voting Poll</h1>
+
   <main>
+
   <section id="displayImages">
     <img id="img1" src="" alt="">
     <img id="img2" src="" alt="">
     <img id="img3" src="" alt="">
   </section>
-  <section id="results">
-    <button id="btn">View Results</button>
-    <ul id="displayResults"></ul>
-  </section>
+
+  <button id="btn">View Results</button>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+
 </main>
+<script defer src="app.js"></script>
 </body>
 </html>

@@ -2,8 +2,7 @@
 
 let productArray = [];
 let votingRounds = 25;
-let previousImages = [];
-
+let count = 0;
 
 function Products(name, fileExt = 'jpg'){
   this.name = name;
@@ -63,31 +62,86 @@ function showImage(){
   productArray[imgThreeDisplay].views++;
 }
 
-function handleImgClicks(event){
-  let imgClicked = event.target.title;
+// function handleImgClicks(event){
+//   let imgClicked = event.target.title;
 
-  for(let i = 0; i < productArray.length; i++){
-    if(imgClicked === productArray[i].name){
-      productArray[i].votes++;
+//   for(let i = 0; i < productArray.length; i++){
+//     if(imgClicked === productArray[i].name){
+//       productArray[i].votes++;
+//     }
+//   }
+//   votingRounds--;
+//   showImage();
+//   if(votingRounds === 0){
+//     displayContainer.removeEventListener('click', handleImgClicks);
+//   }
+// }
+
+function handleImgClicks(event) {
+  if (count < votingRounds) {
+
+    for(let i = 0; i < productArray.length; i++){
+      if(event.target.title === productArray[i].name){
+        productArray[i].votes++;
+      }
     }
+    showImage();
+    count++;
   }
-  votingRounds--;
-  showImage();
-  if(votingRounds === 0){
-    displayContainer.removeEventListener('click', handleImgClicks);
+  else{
+    button.addEventListener('click', handleDisplayResults);
   }
 }
+
+
 
 function handleDisplayResults(){
-  if(votingRounds === 0){
-    for(let i = 0; i < productArray.length; i++){
-      let productItem = document.createElement('li');
-      productItem.textContent = `${productArray[i].name}: Views: ${productArray[i].views} and Votes: ${productArray[i].votes}`;
-      results.appendChild(productItem);
-    }
-    button.removeEventListener('click', handleDisplayResults);
+  // if(votingRounds === 0){
+  //   for(let i = 0; i < productArray.length; i++){
+  //     let productItem = document.createElement('li');
+  //     productItem.textContent = `${productArray[i].name}: Views: ${productArray[i].views} and Votes: ${productArray[i].votes}`;
+  //     results.appendChild(productItem);
+  //   }
+  let productNames = [];
+  let productVotes = [];
+  let productViews = [];
+  for(let i = 0; i < productArray.length; i++){
+    productNames.push(productArray[i].name);
+    productVotes.push(productArray[i].votes);
+    productViews.push(productArray[i].views);
   }
+  // button.removeEventListener('click', handleDisplayResults);
+
+
+
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: productNames,
+      datasets: [{
+        label: '# of Votes',
+        data: productVotes,
+        borderWidth: 1
+      },
+      {
+        label: '# of Views',
+        data: productViews,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
 }
+
+
 
 let sweep = new Products ('sweep', 'png');
 let bag = new Products ('bag');
@@ -111,6 +165,7 @@ let wineGlass = new Products ('wine-glass');
 
 productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
 
+
+
 displayContainer.addEventListener('click', handleImgClicks);
-button.addEventListener('click', handleDisplayResults);
 showImage();
