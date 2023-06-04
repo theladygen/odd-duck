@@ -27,7 +27,7 @@ function showImage(){
   while(indexArray.length < 6){
     let randomImage = Math.floor(Math.random() * productArray.length);
     if(!indexArray.includes(randomImage)){
-      console.log('index has been pushed');
+      // console.log('index has been pushed');
       indexArray.push(randomImage);
     }
   }
@@ -119,12 +119,16 @@ function handleDisplayResults(){
       datasets: [{
         label: '# of Votes',
         data: productVotes,
-        borderWidth: 1
+        borderWidth: 2,
+        backgroundColor: '#f4a261',
+        borderColor: 'black',
       },
       {
         label: '# of Views',
         data: productViews,
-        borderWidth: 1
+        borderWidth: 2,
+        backgroundColor: '#e9c46a',
+        borderColor: 'black',
       }]
     },
     options: {
