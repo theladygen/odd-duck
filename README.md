@@ -4,9 +4,13 @@
 
 ## Odd Duck
 
-This a website that allows users to vote on new products that could be offered at Odd Duck!
+This a website that allows users to vote on new products that could be offered at Odd Duck! Photo images were set to appear so that users will not see duplicate photos back to back and results of views and votes will be displayed on a bar chart.
 
 ### Author: Genevieve DuPuy
+
+### Resources and Collaborations
+
+* This site was built using Chart.js, as well as Eric Meyer's CSS reset
 
 ### Log of Updates
 
