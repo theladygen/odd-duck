@@ -141,25 +141,25 @@ function handleDisplayResults(){
   });
 }
 
-let sweep = new Products ('Sweep', 'png');
-let bag = new Products ('Bag');
-let banana = new Products ('Banana');
-let bathroom = new Products ('Bathroom');
-let boots = new Products ('Boots');
-let breakfast = new Products ('Breakfast');
-let bubblegum = new Products ('Bubblegum');
-let chair = new Products ('Chair');
-let cthulhu = new Products ('Cthulhu');
-let dogDuck = new Products ('Dog-duck');
-let dragon = new Products ('Dragon');
-let pen = new Products ('Pen');
-let petSweep = new Products ('Pet-sweep');
-let scissors = new Products ('Scissors');
-let shark = new Products ('Shark');
-let tauntaun = new Products ('Tauntaun');
-let unicorn = new Products ('Unicorn');
-let waterCan = new Products ('Water-can');
-let wineGlass = new Products ('Wine-glass');
+let sweep = new Products ('sweep', 'png');
+let bag = new Products ('bag');
+let banana = new Products ('banana');
+let bathroom = new Products ('bathroom');
+let boots = new Products ('boots');
+let breakfast = new Products ('breakfast');
+let bubblegum = new Products ('bubblegum');
+let chair = new Products ('chair');
+let cthulhu = new Products ('cthulhu');
+let dogDuck = new Products ('dog-duck');
+let dragon = new Products ('dragon');
+let pen = new Products ('pen');
+let petSweep = new Products ('pet-sweep');
+let scissors = new Products ('scissors');
+let shark = new Products ('shark');
+let tauntaun = new Products ('tauntaun');
+let unicorn = new Products ('unicorn');
+let waterCan = new Products ('water-can');
+let wineGlass = new Products ('wine-glass');
 
 productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
 
@@ -167,3 +167,4 @@ displayContainer.addEventListener('click', handleImgClicks);
 showImage();
 //TODO: how can I get 'Chart' defined and not to error
 //TODO: clean unnecessary commented out code
+//TODO: change text color within chart????!
