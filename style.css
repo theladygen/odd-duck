@@ -13,11 +13,14 @@ h1 {
 
 
 #img1, #img2, #img3 {
+  display: flex;
+  /* justify-content: space-between; */
   max-height: 300px;
   padding: 2em;
 }
 
 #displayImages {
+  border: 6px solid #264653;
   background-color: #e76f51;
   display: flex;
   justify-content: center;
@@ -35,4 +38,10 @@ h1 {
   color: white;
   font-size: x-large;
   text-align: center;
+}
+
+div {
+  border-top: 42px solid #264653;  
+  border-bottom: 42px solid #264653;
+  padding-bottom: 1em;
 }
