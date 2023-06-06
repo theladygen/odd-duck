@@ -111,7 +111,7 @@ function handleDisplayResults(){
   // button.removeEventListener('click', handleDisplayResults);
 
   const ctx = document.getElementById('myChart');
-
+  Chart.defaults.color = 'black';
   new Chart(ctx, {
     type: 'bar',
     data: {
