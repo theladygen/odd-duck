@@ -24,7 +24,7 @@ let button = document.getElementById('btn');
 //random image function
 let indexArray = [];
 function showImage(){
-  while(indexArray.length < 6){
+  while(indexArray.length < 19){
     let randomImage = Math.floor(Math.random() * productArray.length);
     if(!indexArray.includes(randomImage)){
       // console.log('index has been pushed');
