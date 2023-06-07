@@ -3,6 +3,7 @@
 let productArray = [];
 let votingRounds = 25;
 let count = 0;
+
 //constructor
 function Products(name, fileExt = 'jpg'){
   this.name = name;
@@ -10,24 +11,19 @@ function Products(name, fileExt = 'jpg'){
   this.votes = 0;
   this.views = 0;
 }
+
 //dom elements
 let displayContainer = document.getElementById('displayImages');
 let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 let button = document.getElementById('btn');
-// let results = document.getElementById('displayResults');
 
-// function randomImage(){
-//   return Math.floor(Math.random() * productArray.length);
-// }
-//random image function
 let indexArray = [];
 function showImage(){
   while(indexArray.length < 6){
     let randomImage = Math.floor(Math.random() * productArray.length);
     if(!indexArray.includes(randomImage)){
-      // console.log('index has been pushed');
       indexArray.push(randomImage);
     }
   }
@@ -35,16 +31,6 @@ function showImage(){
   let imgOneDisplay = indexArray.shift();
   let imgTwoDisplay = indexArray.shift();
   let imgThreeDisplay = indexArray.shift();
-
-  // while(imgOneDisplay === imgTwoDisplay || imgTwoDisplay === imgThreeDisplay || imgThreeDisplay === imgOneDisplay){
-  //   imgOneDisplay = randomImage();
-  //   imgTwoDisplay = randomImage();
-  //   imgThreeDisplay = randomImage();
-  // }
-
-  // imgOne.src = productArray[randomImage()].img;
-  // imgTwo.src = productArray[randomImage()].img;
-  // imgThree.src = productArray[randomImage()].img;
 
   imgOne.src = productArray[imgOneDisplay].image;
   imgOne.title = productArray[imgOneDisplay].name;
@@ -61,20 +47,6 @@ function showImage(){
   productArray[imgThreeDisplay].views++;
 }
 
-// function handleImgClicks(event){
-//   let imgClicked = event.target.title;
-
-//   for(let i = 0; i < productArray.length; i++){
-//     if(imgClicked === productArray[i].name){
-//       productArray[i].votes++;
-//     }
-//   }
-//   votingRounds--;
-//   showImage();
-//   if(votingRounds === 0){
-//     displayContainer.removeEventListener('click', handleImgClicks);
-//   }
-// }
 //image click function
 function handleImgClicks(event) {
   if (count < votingRounds) {
@@ -94,21 +66,19 @@ function handleImgClicks(event) {
 
 //resulting chart display
 function handleDisplayResults(){
-  // if(votingRounds === 0){
-  //   for(let i = 0; i < productArray.length; i++){
-  //     let productItem = document.createElement('li');
-  //     productItem.textContent = `${productArray[i].name}: Views: ${productArray[i].views} and Votes: ${productArray[i].votes}`;
-  //     results.appendChild(productItem);
-  //   }
+
   let productNames = [];
   let productVotes = [];
   let productViews = [];
+
+  let allProductsString = JSON.stringify(productArray);
+  localStorage.setItem('ProductArray', allProductsString);
+
   for(let i = 0; i < productArray.length; i++){
     productNames.push(productArray[i].name);
     productVotes.push(productArray[i].votes);
     productViews.push(productArray[i].views);
   }
-  // button.removeEventListener('click', handleDisplayResults);
 
   const ctx = document.getElementById('myChart');
   Chart.defaults.color = 'black';
@@ -120,7 +90,7 @@ function handleDisplayResults(){
         label: '# of Votes',
         data: productVotes,
         borderWidth: 2,
-        backgroundColor: '#f4a261',
+        backgroundColor: '#e76f51',
         borderColor: 'black',
       },
       {
@@ -141,30 +111,56 @@ function handleDisplayResults(){
   });
 }
 
-let sweep = new Products ('sweep', 'png');
-let bag = new Products ('bag');
-let banana = new Products ('banana');
-let bathroom = new Products ('bathroom');
-let boots = new Products ('boots');
-let breakfast = new Products ('breakfast');
-let bubblegum = new Products ('bubblegum');
-let chair = new Products ('chair');
-let cthulhu = new Products ('cthulhu');
-let dogDuck = new Products ('dog-duck');
-let dragon = new Products ('dragon');
-let pen = new Products ('pen');
-let petSweep = new Products ('pet-sweep');
-let scissors = new Products ('scissors');
-let shark = new Products ('shark');
-let tauntaun = new Products ('tauntaun');
-let unicorn = new Products ('unicorn');
-let waterCan = new Products ('water-can');
-let wineGlass = new Products ('wine-glass');
+//local storage implementation
+let previousProductArray = localStorage.getItem('ProductArray');
 
-productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
+if(previousProductArray){
+  previousProductArray = JSON.parse(previousProductArray);
+  productArray = previousProductArray;
+}
+else {
+
+  // if(previousProductArray){
+  //   previousProductArray = JSON.parse(previousProductArray);
+  //   for(let i = 0; i < previousProductArray.length; i++){
+  //     if(previousProductArray[i].name === 'sweep'){
+  //       let reconstructProducts = new Products(previousProductArray[i].name);
+  //       reconstructProducts.image = previousProductArray[i].image;
+  //       reconstructProducts.views = previousProductArray[i].views;
+  //       reconstructProducts.votes = previousProductArray[i].votes;
+
+  //       productArray.push(reconstructProducts);
+  //     }
+  //   }
+  // }
+  // else {
+
+  let sweep = new Products ('sweep', 'png');
+  let bag = new Products ('bag');
+  let banana = new Products ('banana');
+  let bathroom = new Products ('bathroom');
+  let boots = new Products ('boots');
+  let breakfast = new Products ('breakfast');
+  let bubblegum = new Products ('bubblegum');
+  let chair = new Products ('chair');
+  let cthulhu = new Products ('cthulhu');
+  let dogDuck = new Products ('dog-duck');
+  let dragon = new Products ('dragon');
+  let pen = new Products ('pen');
+  let petSweep = new Products ('pet-sweep');
+  let scissors = new Products ('scissors');
+  let shark = new Products ('shark');
+  let tauntaun = new Products ('tauntaun');
+  let unicorn = new Products ('unicorn');
+  let waterCan = new Products ('water-can');
+  let wineGlass = new Products ('wine-glass');
+
+
+  productArray.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
+}
 
 displayContainer.addEventListener('click', handleImgClicks);
 showImage();
-//TODO: how can I get 'Chart' defined and not to error
+
+//TODO: how can I get 'Chart' defined and not to error on line 84 and 85
 //TODO: clean unnecessary commented out code
-//TODO: change text color within chart????!

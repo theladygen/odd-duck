@@ -18,6 +18,7 @@ This a website that allows users to vote on new products that could be offered a
 * 6/1/23 added 3 rotating photos and enabled 25 rounds of voting, after which results of views and votes are displayed. added a bit of CSS.
 * 6/2/23 attempted to fix console errors
 * 6/3/23 got results chart to display. Added some CSS styling.
+* 6/6/23 tried to implement usage of local storage (unsuccessfully), deleted some commented out code, and changed chart vote display color
 
 ### Lighthouse Accessibility Report Score
 
