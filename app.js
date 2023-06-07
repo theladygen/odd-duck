@@ -120,21 +120,6 @@ if(previousProductArray){
 }
 else {
 
-  // if(previousProductArray){
-  //   previousProductArray = JSON.parse(previousProductArray);
-  //   for(let i = 0; i < previousProductArray.length; i++){
-  //     if(previousProductArray[i].name === 'sweep'){
-  //       let reconstructProducts = new Products(previousProductArray[i].name);
-  //       reconstructProducts.image = previousProductArray[i].image;
-  //       reconstructProducts.views = previousProductArray[i].views;
-  //       reconstructProducts.votes = previousProductArray[i].votes;
-
-  //       productArray.push(reconstructProducts);
-  //     }
-  //   }
-  // }
-  // else {
-
   let sweep = new Products ('sweep', 'png');
   let bag = new Products ('bag');
   let banana = new Products ('banana');
@@ -163,4 +148,3 @@ displayContainer.addEventListener('click', handleImgClicks);
 showImage();
 
 //TODO: how can I get 'Chart' defined and not to error on line 84 and 85
-//TODO: clean unnecessary commented out code
