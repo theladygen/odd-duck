@@ -20,6 +20,7 @@ This a website that allows users to vote on new products that could be offered a
 * 6/3/23 got results chart to display. Added some CSS styling.
 * 6/6/23 tried to implement usage of local storage, deleted some commented out code, and changed chart vote display color
 * 6/6/23 added lab13 branch and then merged
+* 6/15/23 updated Lighthouse Score
 
 ### Lighthouse Accessibility Report Score
 
